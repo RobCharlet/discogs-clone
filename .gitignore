@@ -9,3 +9,9 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+###< environment ###
+.idea
+.DS_Store
+*.sql
+###< environment ###
