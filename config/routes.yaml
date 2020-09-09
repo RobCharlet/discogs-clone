@@ -1,3 +1,3 @@
-#index:
-#    path: /
-#    controller: App\Library\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Library\UI\Controller\RecordController::index
