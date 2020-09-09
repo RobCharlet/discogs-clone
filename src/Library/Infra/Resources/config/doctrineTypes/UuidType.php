@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Library\Infra\Resources\Types;
+namespace App\Library\Infra\Resources\config\doctrineTypes;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;

@@ -2,7 +2,7 @@ doctrine:
     dbal:
         url: '%env(resolve:DATABASE_URL)%'
         types:
-             uuid: App\Library\Infra\Resources\Types\UuidType
+             uuid: App\Library\Infra\Resources\config\doctrineTypes\UuidType
 
         # IMPORTANT: You MUST configure your server version,
         # either here or in the DATABASE_URL env var (see .env file)
