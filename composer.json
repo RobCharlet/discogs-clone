@@ -5,6 +5,10 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "composer/package-versions-deprecated": "^1.11",
+        "doctrine/doctrine-bundle": "^2.1",
+        "doctrine/doctrine-migrations-bundle": "^3.0",
+        "doctrine/orm": "^2.7",
         "sensio/framework-extra-bundle": "^5.6",
         "symfony/console": "5.1.*",
         "symfony/dotenv": "5.1.*",
@@ -13,6 +17,7 @@
         "symfony/yaml": "5.1.*"
     },
     "require-dev": {
+        "symfony/maker-bundle": "^1.21"
     },
     "config": {
         "optimize-autoloader": true,
