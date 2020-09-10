@@ -18,7 +18,10 @@
         "symfony/yaml": "5.1.*"
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.21"
+        "symfony/maker-bundle": "^1.21",
+        "symfony/stopwatch": "^5.1",
+        "symfony/twig-bundle": "^5.1",
+        "symfony/web-profiler-bundle": "^5.1"
     },
     "config": {
         "optimize-autoloader": true,
