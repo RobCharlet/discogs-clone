@@ -9,31 +9,52 @@ class Record
 {
     /** @var Uuid $id */
     private $id;
+
     /** @var string $title */
     private $title;
+
     /** @var DateTimeImmutable */
     private $createdAt;
+
     /** @var DateTimeImmutable */
-    private $release;
+    private $releaseDate;
 
 
-    public function __construct(Uuid $id, string $title, DateTimeImmutable $createdAt, DateTimeImmutable $release)
+    public function __construct(Uuid $id, string $title, DateTimeImmutable $releaseDate)
     {
         $this->id = $id;
         $this->title = $title;
-        $this->createdAt = $createdAt;
-        $this->release = $release;
+        $this->releaseDate = $releaseDate;
+        $this->createdAt = new DateTimeImmutable("now");
     }
 
-    public function updateTitle(string $title): string
+    public function getId(): Uuid
     {
-        $this->title = $title;
+        return $this->id;
+    }
+
+    public function getTitle(): string
+    {
         return $this->title;
     }
 
-    public function updateRelease(DateTimeImmutable $release): DateTimeImmutable
+    public function getCreatedAt(): DateTimeImmutable
     {
-        $this->release = $release;
-        return $this->release;
+        return $this->createdAt;
+    }
+
+    public function getReleaseDate(): DateTimeImmutable
+    {
+        return $this->releaseDate;
+    }
+
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+
+    public function setReleaseDate(DateTimeImmutable $releaseDate): void
+    {
+        $this->releaseDate = $releaseDate;
     }
 }

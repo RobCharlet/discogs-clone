@@ -1,4 +1,21 @@
 {
+    "api-platform/api-pack": {
+        "version": "v1.3.0"
+    },
+    "api-platform/core": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "a93061567140e386f107be75340ac2aee3f86cbf"
+        },
+        "files": [
+            "config/packages/api_platform.yaml",
+            "config/routes/api_platform.yaml",
+            "src/Entity/.gitignore"
+        ]
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99"
     },
@@ -81,6 +98,9 @@
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
+    "fig/link-util": {
+        "version": "1.1.1"
+    },
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
@@ -89,6 +109,18 @@
     },
     "laminas/laminas-zendframework-bridge": {
         "version": "1.1.0"
+    },
+    "nelmio/cors-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "6388de23860284db9acce0a7a5d9d13153bcb571"
+        },
+        "files": [
+            "config/packages/nelmio_cors.yaml"
+        ]
     },
     "nikic/php-parser": {
         "version": "v4.9.1"
@@ -99,6 +131,15 @@
     "php": {
         "version": "7.4"
     },
+    "phpdocumentor/reflection-common": {
+        "version": "2.2.0"
+    },
+    "phpdocumentor/reflection-docblock": {
+        "version": "5.2.1"
+    },
+    "phpdocumentor/type-resolver": {
+        "version": "1.3.0"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -106,6 +147,9 @@
         "version": "1.0.0"
     },
     "psr/event-dispatcher": {
+        "version": "1.0.0"
+    },
+    "psr/link": {
         "version": "1.0.0"
     },
     "psr/log": {
@@ -124,6 +168,9 @@
         ]
     },
     "symfony/amqp-messenger": {
+        "version": "v5.1.5"
+    },
+    "symfony/asset": {
         "version": "v5.1.5"
     },
     "symfony/cache": {
@@ -170,6 +217,9 @@
     },
     "symfony/event-dispatcher-contracts": {
         "version": "v2.2.0"
+    },
+    "symfony/expression-language": {
+        "version": "v5.1.5"
     },
     "symfony/filesystem": {
         "version": "v5.1.5"
@@ -259,6 +309,12 @@
     "symfony/profiler-pack": {
         "version": "v1.0.5"
     },
+    "symfony/property-access": {
+        "version": "v5.1.5"
+    },
+    "symfony/property-info": {
+        "version": "v5.1.5"
+    },
     "symfony/redis-messenger": {
         "version": "v5.1.5"
     },
@@ -275,6 +331,36 @@
             "config/packages/routing.yaml",
             "config/routes.yaml"
         ]
+    },
+    "symfony/security-bundle": {
+        "version": "5.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.1",
+            "ref": "0a4bae19389d3b9cba1ca0102e3b2bccea724603"
+        },
+        "files": [
+            "config/packages/security.yaml"
+        ]
+    },
+    "symfony/security-core": {
+        "version": "v5.1.5"
+    },
+    "symfony/security-csrf": {
+        "version": "v5.1.5"
+    },
+    "symfony/security-guard": {
+        "version": "v5.1.5"
+    },
+    "symfony/security-http": {
+        "version": "v5.1.5"
+    },
+    "symfony/serializer": {
+        "version": "v5.1.5"
+    },
+    "symfony/serializer-pack": {
+        "version": "v1.0.3"
     },
     "symfony/service-contracts": {
         "version": "v2.2.0"
@@ -308,10 +394,26 @@
     "symfony/uid": {
         "version": "v5.1.5"
     },
+    "symfony/validator": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "d902da3e4952f18d3bf05aab29512eb61cabd869"
+        },
+        "files": [
+            "config/packages/test/validator.yaml",
+            "config/packages/validator.yaml"
+        ]
+    },
     "symfony/var-dumper": {
         "version": "v5.1.5"
     },
     "symfony/var-exporter": {
+        "version": "v5.1.5"
+    },
+    "symfony/web-link": {
         "version": "v5.1.5"
     },
     "symfony/web-profiler-bundle": {
@@ -336,5 +438,11 @@
     },
     "webimpress/safe-writer": {
         "version": "2.1.0"
+    },
+    "webmozart/assert": {
+        "version": "1.9.1"
+    },
+    "willdurand/negotiation": {
+        "version": "v2.3.1"
     }
 }
