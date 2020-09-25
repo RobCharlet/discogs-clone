@@ -14,14 +14,14 @@
         <itemOperations>
             <itemOperation name="get">
                 <attribute name="method">GET</attribute>
-<!--                <attribute name="output">App\Dto\PostDTO</attribute>-->
+                <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>
             </itemOperation>
         </itemOperations>
         <collectionOperations>
             <collectionOperation name="record">
                 <attribute name="method">POST</attribute>
-<!--                <attribute name="input">App\Dto\PostDto</attribute>-->
-<!--                <attribute name="output">App\Dto\PostDto</attribute>-->
+                <attribute name="input">App\Library\Domain\DTO\RecordInputDTO</attribute>
+                <attribute name="output">App\Library\Domain\DTO\RecordInputDTO</attribute>
             </collectionOperation>
         </collectionOperations>
     </resource>
