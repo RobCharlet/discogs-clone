@@ -7,18 +7,10 @@ use Symfony\Component\Uid\Uuid;
 
 class Record
 {
-    /** @var Uuid $id */
-    private $id;
-
-    /** @var string $title */
-    private $title;
-
-    /** @var DateTimeImmutable */
-    private $createdAt;
-
-    /** @var DateTimeImmutable */
-    private $releaseDate;
-
+    private Uuid $id;
+    private string $title;
+    private DateTimeImmutable $createdAt;
+    private DateTimeImmutable $releaseDate;
 
     public function __construct(Uuid $id, string $title, DateTimeImmutable $releaseDate)
     {

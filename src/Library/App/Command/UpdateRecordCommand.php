@@ -5,7 +5,7 @@ namespace App\Library\App\Command;
 use DateTimeImmutable;
 use Symfony\Component\Uid\Uuid;
 
-class CreateRecordCommand
+class UpdateRecordCommand
 {
     private string $id;
     private array $payload;
@@ -26,9 +26,9 @@ class CreateRecordCommand
      * @param string $id
      * @param array  $payload
      *
-     * @return CreateRecordCommand
+     * @return UpdateRecordCommand
      */
-    public static function fromData(string $id, array $payload): CreateRecordCommand
+    public static function fromData(string $id, array $payload): UpdateRecordCommand
     {
         return new static($id, $payload);
     }

@@ -8,7 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class RecordWriter implements RecordWriterInterface
 {
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
     {

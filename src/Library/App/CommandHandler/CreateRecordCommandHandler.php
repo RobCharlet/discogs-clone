@@ -8,10 +8,7 @@ use App\Library\Domain\Repository\RecordWriterInterface;
 
 class CreateRecordCommandHandler
 {
-    /**
-     * @var RecordWriterInterface
-     */
-    private $recordWriter;
+    private RecordWriterInterface $recordWriter;
 
     /**
      * CreateRecordCommandHandler constructor.
