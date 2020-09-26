@@ -6,13 +6,14 @@ use ApiPlatform\Core\DataTransformer\DataTransformerInterface;
 use ApiPlatform\Core\Validator\ValidatorInterface;
 use App\Library\App\Command\CreateRecordCommand;
 use App\Library\Domain\Record;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Uid\Uuid;
 
 final class RecordInputDataTransformer implements DataTransformerInterface
 {
     private ValidatorInterface $validator;
-
     private MessageBusInterface $commandBus;
 
     public function __construct(ValidatorInterface $validator, MessageBusInterface $commandBus)
@@ -21,18 +22,23 @@ final class RecordInputDataTransformer implements DataTransformerInterface
         $this->commandBus = $commandBus;
     }
 
-    public function transform($object, string $to, array $context = [])
+    public function transform($data, string $to, array $context = [])
     {
-        // TODO: Fix empty object
-        dd($object);
+        $this->validator->validate($data);
 
         $payload = [
-            'title' => $object->title,
-            'releaseDate' => $object->releaseDate
+            'title' => $data->title,
+            'releaseDate' => $data->releaseDate
         ];
 
         $command = CreateRecordCommand::fromData(Uuid::v4()->toRfc4122(), $payload);
         $this->commandBus->dispatch($command);
+
+        return new JsonResponse(
+            '',
+            Response::HTTP_CREATED,
+            ['X-RESOURCE-ID' => $command->getId()]
+        );
     }
 
     public function supportsTransformation($data, string $to, array $context = []): bool

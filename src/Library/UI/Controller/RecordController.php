@@ -22,6 +22,7 @@ class RecordController
     public function createRecordController(Request $request, MessageBusInterface $commandBus)
     {
         $payload = json_decode($request->getContent(), true);
+        dd($payload);
         $command = CreateRecordCommand::fromData(Uuid::v4()->toRfc4122(), $payload);
         $commandBus->dispatch($command);
 

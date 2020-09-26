@@ -31,3 +31,7 @@ services:
         resource: '../src/Library/App/CommandHandler'
         tags:
             - { name: messenger.message_handler, bus: command_bus }
+
+    App\Library\Infra\DataTransformer\RecordInputDataTransformer\:
+        resource: '../src/Library/Infra/DataTransformer/RecordInputDataTransformer.php'
+        tags: [ 'api_platform.data_transformer' ]

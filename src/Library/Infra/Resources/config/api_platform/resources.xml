@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
+<!--<resources xmlns="https://api-platform.com/schema/metadata"-->
+<!--   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--   xsi:schemaLocation="https://api-platform.com/schema/metadata-->
+<!--   https://api-platform.com/schema/metadata/metadata-2.0.xsd">-->
+<!--    <resource class="App\Library\Domain\Record">-->
+<!--        <attribute name="normalization_context">-->
+<!--            <attribute name="groups">record:read</attribute>-->
+<!--        </attribute>-->
+<!--        <attribute name="denormalization_context">-->
+<!--            <attribute name="groups">record:write</attribute>-->
+<!--        </attribute>-->
+<!--        <itemOperations>-->
+<!--            <itemOperation name="get">-->
+<!--                <attribute name="method">GET</attribute>-->
+<!--                <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>-->
+<!--            </itemOperation>-->
+<!--        </itemOperations>-->
+<!--        <collectionOperations>-->
+<!--            <collectionOperation name="record">-->
+<!--                <attribute name="method">POST</attribute>-->
+<!--                <attribute name="input">App\Library\Domain\DTO\RecordInputDTO</attribute>-->
+<!--                <attribute name="output">App\Library\Domain\DTO\RecordInputDTO</attribute>-->
+<!--            </collectionOperation>-->
+<!--        </collectionOperations>-->
+<!--    </resource>-->
+<!--</resources>-->
 <resources xmlns="https://api-platform.com/schema/metadata"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="https://api-platform.com/schema/metadata
-   https://api-platform.com/schema/metadata/metadata-2.0.xsd">
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="https://api-platform.com/schema/metadata
+           https://api-platform.com/schema/metadata/metadata-2.0.xsd">
     <resource class="App\Library\Domain\Record">
-        <attribute name="normalization_context">
-            <attribute name="groups">record:read</attribute>
-        </attribute>
-        <attribute name="denormalization_context">
-            <attribute name="groups">record:write</attribute>
-        </attribute>
-        <itemOperations>
-            <itemOperation name="get">
-                <attribute name="method">GET</attribute>
-                <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>
-            </itemOperation>
-        </itemOperations>
-        <collectionOperations>
-            <collectionOperation name="record">
-                <attribute name="method">POST</attribute>
-                <attribute name="input">App\Library\Domain\DTO\RecordInputDTO</attribute>
-                <attribute name="output">App\Library\Domain\DTO\RecordInputDTO</attribute>
-            </collectionOperation>
-        </collectionOperations>
+        <attribute name="input">App\Library\Domain\DTO\RecordInputDTO</attribute>
+        <attribute name="output">App\Library\Domain\DTO\RecordInputDTO</attribute>
     </resource>
 </resources>

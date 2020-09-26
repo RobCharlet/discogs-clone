@@ -16,6 +16,6 @@ framework:
     php_errors:
         log: true
 
-    serializer:
-        mapping:
-            paths: [ '%kernel.project_dir%/src/Library/Infra/Resources/config/serializer/serialization.xml' ]
+#    serializer:
+#        mapping:
+#            paths: [ '%kernel.project_dir%/src/Library/Infra/Resources/config/serializer/serialization.xml' ]
