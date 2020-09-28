@@ -39,7 +39,7 @@ class RecordController
      * @param MessageBusInterface $commandBus
      * @param string              $id
      *
-     * @return JsonResponse
+     * @return Response
      */
     public function updateRecordController(Request $request, MessageBusInterface $commandBus, string $id)
     {
@@ -47,10 +47,6 @@ class RecordController
         $command = UpdateRecordCommand::fromData($id, $payload);
         $commandBus->dispatch($command);
 
-        return new JsonResponse(
-            '',
-            Response::HTTP_CREATED,
-            ['X-RESOURCE-ID' => $command->getId()]
-        );
+        return new Response('', Response::HTTP_NO_CONTENT);
     }
 }

@@ -3,8 +3,10 @@
 namespace App\Library\Infra\DataTransformer;
 
 use ApiPlatform\Core\DataTransformer\DataTransformerInterface;
+use ApiPlatform\Core\Serializer\AbstractItemNormalizer;
 use ApiPlatform\Core\Validator\ValidatorInterface;
 use App\Library\App\Command\CreateRecordCommand;
+use App\Library\App\Command\UpdateRecordCommand;
 use App\Library\Domain\Record;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,14 +33,25 @@ final class RecordInputDataTransformer implements DataTransformerInterface
             'releaseDate' => $data->releaseDate
         ];
 
-        $command = CreateRecordCommand::fromData(Uuid::v4()->toRfc4122(), $payload);
-        $this->commandBus->dispatch($command);
+        // UPDATE PROCESS
+        if (array_key_exists('object_to_populate',$context)) {
+            $existingRecord = $context[AbstractItemNormalizer::OBJECT_TO_POPULATE];
+            $existingRecordId = $existingRecord->getId();
+            $command = UpdateRecordCommand::fromData($existingRecordId->toRfc4122(), $payload);
+            $this->commandBus->dispatch($command);
+            return new Response('', Response::HTTP_NO_CONTENT);
+        }
+        // CREATE PROCESS
+        else {
+            $command = CreateRecordCommand::fromData(Uuid::v4()->toRfc4122(), $payload);
+            $this->commandBus->dispatch($command);
 
-        return new JsonResponse(
-            '',
-            Response::HTTP_CREATED,
-            ['X-RESOURCE-ID' => $command->getId()]
-        );
+            return new JsonResponse(
+                '',
+                Response::HTTP_CREATED,
+                ['X-RESOURCE-ID' => $command->getId()]
+            );
+        }
     }
 
     public function supportsTransformation($data, string $to, array $context = []): bool

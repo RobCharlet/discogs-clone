@@ -16,12 +16,17 @@
                 <attribute name="method">GET</attribute>
                 <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>
             </itemOperation>
+            <itemOperation name="update">
+                <attribute name="method">PUT</attribute>
+                <attribute name="input">App\Library\Domain\DTO\RecordInputDTO</attribute>
+                <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>
+            </itemOperation>
         </itemOperations>
         <collectionOperations>
             <collectionOperation name="record">
                 <attribute name="method">POST</attribute>
                 <attribute name="input">App\Library\Domain\DTO\RecordInputDTO</attribute>
-                <attribute name="output">App\Library\Domain\DTO\RecordInputDTO</attribute>
+                <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>
             </collectionOperation>
         </collectionOperations>
     </resource>
