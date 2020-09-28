@@ -37,8 +37,11 @@ final class RecordInputDataTransformer implements DataTransformerInterface
         if (array_key_exists('object_to_populate',$context)) {
             $existingRecord = $context[AbstractItemNormalizer::OBJECT_TO_POPULATE];
             $existingRecordId = $existingRecord->getId();
+
             $command = UpdateRecordCommand::fromData($existingRecordId->toRfc4122(), $payload);
             $this->commandBus->dispatch($command);
+
+            /** TODO: Return Record ? */
             return new Response('', Response::HTTP_NO_CONTENT);
         }
         // CREATE PROCESS

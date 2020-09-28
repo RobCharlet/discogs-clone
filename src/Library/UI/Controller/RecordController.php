@@ -4,15 +4,45 @@ namespace App\Library\UI\Controller;
 
 use App\Library\App\Command\CreateRecordCommand;
 use App\Library\App\Command\UpdateRecordCommand;
+use App\Library\App\Query\FindRecordQuery;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Symfony\Component\Messenger\Stamp\HandledStamp;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Uid\Uuid;
 
 class RecordController
 {
+    /**
+     * @Route("/records/{id}.json", name="get_record", methods={"GET"}, requirements={"_format": "json"})
+     * @param MessageBusInterface $queryBus
+     * @param NormalizerInterface $normalizer
+     * @param string              $id
+     *
+     * @return JsonResponse
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     */
+    public function getRecordController(
+        MessageBusInterface $queryBus,
+        NormalizerInterface $normalizer,
+        string $id
+    )
+    {
+        $query = FindRecordQuery::withId($id);
+        $envelope = $queryBus->dispatch($query);
+
+        $record = $envelope->last(HandledStamp::class)->getResult();
+
+        return new JsonResponse(
+            $normalizer->normalize($record),
+            Response::HTTP_OK
+        );
+    }
+
+
     /**
      * @Route("/api/records/create.json", name="create_record", methods={"POST"}, requirements={"_format": "json"})
      * @param Request             $request

@@ -32,6 +32,15 @@ services:
         tags:
             - { name: messenger.message_handler, bus: command_bus }
 
-    App\Library\Infra\DataTransformer\RecordInputDataTransformer\:
-        resource: '../src/Library/Infra/DataTransformer/RecordInputDataTransformer.php'
+    App\Library\App\QueryHandler\:
+        resource: '../src/Library/App/QueryHandler'
+        tags:
+            - { name: messenger.message_handler, bus: command_bus }
+
+    App\Library\UI\RestNormalizer\:
+        resource: '../src/Library/UI/RestNormalizer'
+        tags: [ 'serializer.normalizer' ]
+
+    App\Library\Infra\DataTransformer\:
+        resource: '../src/Library/Infra/DataTransformer'
         tags: [ 'api_platform.data_transformer' ]
