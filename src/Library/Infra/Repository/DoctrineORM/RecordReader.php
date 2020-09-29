@@ -23,4 +23,9 @@ class RecordReader implements RecordReaderInterface
 
         return $record;
     }
+
+    public function findAll(): array
+    {
+        return $this->entityManager->getRepository(Record::class)->findAll();
+    }
 }

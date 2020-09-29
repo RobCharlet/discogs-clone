@@ -23,14 +23,20 @@
             </itemOperation>
             <itemOperation name="delete">
                 <attribute name="method">DELETE</attribute>
-                <attribute name="controller">App\Library\UI\Controller\RecordController</attribute>
+                <attribute name="controller">App\Library\UI\Controller\DeleteRecordController</attribute>
             </itemOperation>
         </itemOperations>
         <collectionOperations>
-            <collectionOperation name="record">
+            <collectionOperation name="post">
                 <attribute name="method">POST</attribute>
                 <attribute name="input">App\Library\Domain\DTO\RecordInputDTO</attribute>
                 <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>
+            </collectionOperation>
+            <collectionOperation name="get">
+                <attribute name="method">GET</attribute>
+                <attribute name="controller">App\Library\UI\Controller\FetchAllRecordsController</attribute>
+                <attribute name="pagination_client_items_per_page">true</attribute>
+                <attribute name="maximum_items_per_page">5</attribute>
             </collectionOperation>
         </collectionOperations>
     </resource>

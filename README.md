@@ -1,5 +1,9 @@
 # Discogs clone - DDD CQRS - Api Platform
 
+## Requirement
+
+- PHP 7.4
+
 ## Setup
 
 **Download Composer dependencies**
