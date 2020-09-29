@@ -11,6 +11,7 @@ use App\Library\Domain\Record;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Symfony\Component\Messenger\Stamp\HandledStamp;
 use Symfony\Component\Uid\Uuid;
 
 final class RecordInputDataTransformer implements DataTransformerInterface
@@ -39,9 +40,8 @@ final class RecordInputDataTransformer implements DataTransformerInterface
             $existingRecordId = $existingRecord->getId();
 
             $command = UpdateRecordCommand::fromData($existingRecordId->toRfc4122(), $payload);
-            $this->commandBus->dispatch($command);
+            $envelope = $this->commandBus->dispatch($command);
 
-            /** TODO: Return Record ? */
             return new Response('', Response::HTTP_NO_CONTENT);
         }
         // CREATE PROCESS

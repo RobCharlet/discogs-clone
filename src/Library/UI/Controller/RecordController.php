@@ -3,8 +3,10 @@
 namespace App\Library\UI\Controller;
 
 use App\Library\App\Command\CreateRecordCommand;
+use App\Library\App\Command\DeleteRecordCommand;
 use App\Library\App\Command\UpdateRecordCommand;
 use App\Library\App\Query\FindRecordQuery;
+use App\Library\Domain\Record;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +18,21 @@ use Symfony\Component\Uid\Uuid;
 
 class RecordController
 {
+    private MessageBusInterface $commandBus;
+
+    public function __construct(MessageBusInterface $commandBus)
+    {
+        $this->commandBus = $commandBus;
+    }
+
+    public function __invoke(Record $record)
+    {
+        $command = DeleteRecordCommand::fromId($record->getId());
+        $this->commandBus->dispatch($command);
+
+        return new Response('', Response::HTTP_NO_CONTENT);
+    }
+
     /**
      * @Route("/records/{id}.json", name="get_record", methods={"GET"}, requirements={"_format": "json"})
      * @param MessageBusInterface $queryBus
@@ -75,6 +92,21 @@ class RecordController
     {
         $payload = json_decode($request->getContent(), true);
         $command = UpdateRecordCommand::fromData($id, $payload);
+        $commandBus->dispatch($command);
+
+        return new Response('', Response::HTTP_NO_CONTENT);
+    }
+
+    /**
+     * @Route("/records/{id}.json", name="delete_record", methods={"DELETE"}, requirements={"_format": "json"})
+     * @param MessageBusInterface $commandBus
+     * @param string              $id
+     *
+     * @return Response
+     */
+    public function deleteController(MessageBusInterface $commandBus, string $id)
+    {
+        $command = DeleteRecordCommand::fromId($id);
         $commandBus->dispatch($command);
 
         return new Response('', Response::HTTP_NO_CONTENT);

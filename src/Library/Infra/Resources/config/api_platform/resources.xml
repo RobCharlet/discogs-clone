@@ -21,6 +21,10 @@
                 <attribute name="input">App\Library\Domain\DTO\RecordInputDTO</attribute>
                 <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>
             </itemOperation>
+            <itemOperation name="delete">
+                <attribute name="method">DELETE</attribute>
+                <attribute name="controller">App\Library\UI\Controller\RecordController</attribute>
+            </itemOperation>
         </itemOperations>
         <collectionOperations>
             <collectionOperation name="record">
