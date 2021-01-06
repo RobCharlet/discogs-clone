@@ -27,6 +27,8 @@ class CreateRecordCommandHandler
      */
     public function __invoke(CreateRecordCommand $command): void
     {
+        dd($command);
+
         $id = $command->getId();
         $title = $command->getTitle();
         $release = $command->getReleaseDate();
