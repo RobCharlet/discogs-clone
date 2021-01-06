@@ -52,8 +52,12 @@ Then, to start the web server, open a terminal, move into the
 project, and run:
 
 ```
-symfony serve
+symfony serve -d
 ```
+
+**Enjoy the API**
+
+https://127.0.0.1:8000/api
 
 ## Thanks!
 
