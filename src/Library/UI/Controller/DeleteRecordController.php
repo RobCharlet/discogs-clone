@@ -16,7 +16,7 @@ class DeleteRecordController
         $this->commandBus = $commandBus;
     }
 
-    public function __invoke(Record $record)
+    public function __invoke(Record $record): Response
     {
         $command = DeleteRecordCommand::fromId($record->getId());
         $this->commandBus->dispatch($command);
