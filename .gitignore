@@ -16,3 +16,8 @@
 .DS_Store
 *.sql
 ###< environment ###
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
