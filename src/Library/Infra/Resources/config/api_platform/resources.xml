@@ -23,37 +23,22 @@
             </itemOperation>
             <itemOperation name="delete">
                 <attribute name="method">DELETE</attribute>
-                <attribute name="controller">App\Library\UI\Controller\DeleteRecordController</attribute>
-            </itemOperation>
-<!--            <itemOperation name="create">
-                <attribute name="method">POST</attribute>
-                <attribute name="controller">App\Library\UI\Controller\CreateRecordController</attribute>
                 <attribute name="input">App\Library\Domain\DTO\RecordInputDTO</attribute>
                 <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>
-            </itemOperation>-->
+            </itemOperation>
         </itemOperations>
         <collectionOperations>
             <collectionOperation name="post">
                 <attribute name="method">POST</attribute>
-<!--                <attribute name="controller">App\Library\UI\Controller\CreateRecordController</attribute>-->
                 <attribute name="input">App\Library\Domain\DTO\RecordInputDTO</attribute>
                 <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>
             </collectionOperation>
             <collectionOperation name="get">
                 <attribute name="method">GET</attribute>
-                <attribute name="controller">App\Library\UI\Controller\FetchAllRecordsController</attribute>
+                <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>
                 <attribute name="pagination_client_items_per_page">true</attribute>
                 <attribute name="maximum_items_per_page">5</attribute>
             </collectionOperation>
         </collectionOperations>
     </resource>
 </resources>
-<!--<resources xmlns="https://api-platform.com/schema/metadata"-->
-<!--           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
-<!--           xsi:schemaLocation="https://api-platform.com/schema/metadata-->
-<!--           https://api-platform.com/schema/metadata/metadata-2.0.xsd">-->
-<!--    <resource class="App\Library\Domain\Record">-->
-<!--        <attribute name="input">App\Library\Domain\DTO\RecordInputDTO</attribute>-->
-<!--        <attribute name="output">App\Library\Domain\DTO\RecordInputDTO</attribute>-->
-<!--    </resource>-->
-<!--</resources>-->

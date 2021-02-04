@@ -1,3 +1,6 @@
 #index:
 #    path: /
 #    controller: App\Library\UI\Controller\RecordController::index
+#app:
+#    resource: '../src/Library/UI/Controller/'
+#    type: annotation
