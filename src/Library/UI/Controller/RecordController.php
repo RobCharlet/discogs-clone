@@ -45,7 +45,7 @@ class RecordController
 
 
     /**
-     * @Route("/api/records/create.json", name="create_record", methods={"POST"}, requirements={"_format": "json"})
+     * @Route("/records.{_format}", methods="POST", requirements={"_format": "json"})
      * @param Request             $request
      * @param MessageBusInterface $commandBus
      *

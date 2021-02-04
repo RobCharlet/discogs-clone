@@ -35,9 +35,9 @@
         <collectionOperations>
             <collectionOperation name="post">
                 <attribute name="method">POST</attribute>
-                <attribute name="controller">App\Library\UI\Controller\CreateRecordController</attribute>
-<!--                <attribute name="input">App\Library\Domain\DTO\RecordInputDTO</attribute>-->
-<!--                <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>-->
+<!--                <attribute name="controller">App\Library\UI\Controller\CreateRecordController</attribute>-->
+                <attribute name="input">App\Library\Domain\DTO\RecordInputDTO</attribute>
+                <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>
             </collectionOperation>
             <collectionOperation name="get">
                 <attribute name="method">GET</attribute>

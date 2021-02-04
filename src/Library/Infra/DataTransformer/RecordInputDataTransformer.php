@@ -7,6 +7,7 @@ use ApiPlatform\Core\Serializer\AbstractItemNormalizer;
 use ApiPlatform\Core\Validator\ValidatorInterface;
 use App\Library\App\Command\CreateRecordCommand;
 use App\Library\App\Command\UpdateRecordCommand;
+use App\Library\Domain\DTO\RecordInputDTO;
 use App\Library\Domain\Record;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,13 +25,16 @@ final class RecordInputDataTransformer implements DataTransformerInterface
         $this->commandBus = $commandBus;
     }
 
-    public function transform($data, string $to, array $context = [])
+    /**
+     * @param RecordInputDTO $input
+     */
+    public function transform($input, string $to, array $context = [])
     {
-        $this->validator->validate($data);
+        $this->validator->validate($input);
 
         $payload = [
-            'title' => $data->title,
-            'releaseDate' => $data->releaseDate
+            'title' => $input->title,
+            'releaseDate' => $input->releaseDate
         ];
 
         // UPDATE PROCESS
@@ -39,13 +43,14 @@ final class RecordInputDataTransformer implements DataTransformerInterface
             $existingRecordId = $existingRecord->getId();
 
             $command = UpdateRecordCommand::fromData($existingRecordId->toRfc4122(), $payload);
-            $envelope = $this->commandBus->dispatch($command);
+            $this->commandBus->dispatch($command);
 
             return new Response('', Response::HTTP_ACCEPTED);
         }
         // CREATE PROCESS
         else {
             $command = CreateRecordCommand::fromData(Uuid::v4()->toRfc4122(), $payload);
+
             $this->commandBus->dispatch($command);
 
             return new JsonResponse(

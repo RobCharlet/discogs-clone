@@ -54,6 +54,6 @@ class UpdateRecordCommand
      */
     public function getReleaseDate(): DateTimeImmutable
     {
-        return DateTimeImmutable::createFromFormat('Y-m-d', $this->payload['releaseDate']);
+        return $this->payload['releaseDate'];
     }
 }
