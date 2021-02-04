@@ -38,6 +38,11 @@ php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 ```
 
+**Load the fixtures**
+```
+symfony console doctrine:fixture:load
+```
+
 **Start the built-in web server**
 
 You can use Nginx or Apache, but Symfony's local web server

@@ -44,3 +44,8 @@ services:
     App\Library\Infra\DataTransformer\:
         resource: '../src/Library/Infra/DataTransformer'
         tags: [ 'api_platform.data_transformer' ]
+
+    # fixture service
+    App\DataFixtures\:
+        resource: '../src/DataFixtures'
+        tags    : [ doctrine.fixture.orm ]
