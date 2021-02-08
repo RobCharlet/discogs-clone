@@ -37,7 +37,7 @@
                 <attribute name="method">GET</attribute>
                 <attribute name="output">App\Library\Domain\DTO\RecordOutputDTO</attribute>
                 <attribute name="pagination_client_items_per_page">true</attribute>
-                <attribute name="maximum_items_per_page">30</attribute>
+                <attribute name="pagination_maximum_items_per_page">30</attribute>
             </collectionOperation>
         </collectionOperations>
     </resource>

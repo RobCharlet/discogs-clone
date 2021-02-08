@@ -38,9 +38,12 @@ php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 ```
 
-**Load the fixtures**
+**Load Schema for Tests**
+
 ```
-symfony console doctrine:fixture:load
+symfony console doctrine:database:create --env=test
+symfony console doctrine:migrations:migrate --env=test
+symfony run bin/phpunit
 ```
 
 **Start the built-in web server**
