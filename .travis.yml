@@ -17,6 +17,7 @@ before-install:
     - composer self-update
 
 install:
+    - cp .env.test .env
     - composer install
     - APP_ENV=test php bin/console doctrine:database:create
     - APP_ENV=test php bin/console doctrine:schema:update --force
