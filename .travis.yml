@@ -2,7 +2,7 @@ language: php
 sudo: false
 cache:
      directories:
-        - $HOME/.composer/cache
+        - $HOME/.composer/cache/
 
 warning_are_errors: false
 
@@ -14,9 +14,12 @@ php:
 
 install:
     - composer install --prefer-dist --no-interaction
-    - php bin/console doctrine:database:create --env=test
-    - php bin/console doctrine:schema:update --force --env=test
-    - php bin/console doctrine:fixtures:load -n --env=test
+    - APP_ENV=test php bin/console doctrine:database:create
+    - APP_ENV=test php bin/console doctrine:schema:update --force
+    - APP_ENV=test php bin/console doctrine:fixtures:load -n
+
+before_script:
+    - phpenv config-rm xdebug.ini || return 0
 
 script:
     - bin/phpunit
