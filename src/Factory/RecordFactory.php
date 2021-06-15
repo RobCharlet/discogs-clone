@@ -25,7 +25,7 @@ final class RecordFactory extends ModelFactory
         return [
             'id' => Uuid::v4(),
             'title' => self::faker()->realText(50),
-            'releaseDate' => DateTimeImmutable::createFromMutable(self::faker()->dateTimeThisCentury),
+            'releaseDate' => DateTimeImmutable::createFromMutable(self::faker()->dateTimeThisCentury()),
         ];
     }
 
