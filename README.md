@@ -34,15 +34,16 @@ symfony var:export --multiline
 **Setup the Database**
 
 ```
-php bin/console doctrine:database:create
-php bin/console doctrine:migrations:migrate
+symfony console doctrine:database:create
+symfony console doctrine:schema:create
+symfony console doctrine:fixtures:load
 ```
 
 **Load Schema for Tests**
 
 ```
 symfony console doctrine:database:create --env=test
-symfony console doctrine:migrations:migrate --env=test
+symfony console doctrine:schema:create --env=test
 symfony run bin/phpunit
 ```
 
